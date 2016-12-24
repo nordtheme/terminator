@@ -104,7 +104,7 @@ NORD_TERMINATOR_SCRIPT_OPTS=`getopt -o vhc: --long verbose,help,configfile: -n '
 COLOR_CONFIG_FILE=src/config
 VERBOSE=false
 LOCAL_INSTALL_DIR=~/.config/terminator
-NORD_TERMINATOR_VERSION=
+NORD_TERMINATOR_VERSION=0.1.0
 
 eval set -- "$NORD_TERMINATOR_SCRIPT_OPTS"
 while true; do
