@@ -14,7 +14,7 @@ Based on the <a href="https://github.com/arcticicestudio/nord">Nord</a> color pa
 ## Getting started
 ### Installation
 #### Manual
-Copy the [`config`](https://github.com/arcticicestudio/nord-terminator/blob/develop/src/config) file to the local configuration directory `~/.config/termite`.
+Copy the [`config`](https://github.com/arcticicestudio/nord-terminator/blob/develop/src/config) file to the local configuration directory `~/.config/terminator`.
 
 #### Install Script
 The included `install.sh` shell script can be used for an automated installation.  
