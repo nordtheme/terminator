@@ -8,27 +8,27 @@
 
 set -e
 
-_ct_error="\e[0;31m"
-_ct_success="\e[0;32m"
-_ct_warning="\e[0;33m"
-_ct_highlight="\e[0;34m"
-_ct_primary="\e[0;36m"
-_ct="\e[0;37m"
-_ctb_subtle="\e[1;30m"
-_ctb_error="\e[1;31m"
-_ctb_success="\e[1;32m"
-_ctb_warning="\e[1;33m"
-_ctb_highlight="\e[1;34m"
-_ctb_primary="\e[1;36m"
-_ctb="\e[1;37m"
-_c_reset="\e[0m"
+_ct_error="\\e[0;31m"
+_ct_success="\\e[0;32m"
+_ct_warning="\\e[0;33m"
+_ct_highlight="\\e[0;34m"
+_ct_primary="\\e[0;36m"
+_ct="\\e[0;37m"
+_ctb_subtle="\\e[1;30m"
+_ctb_error="\\e[1;31m"
+_ctb_success="\\e[1;32m"
+_ctb_warning="\\e[1;33m"
+_ctb_highlight="\\e[1;34m"
+_ctb_primary="\\e[1;36m"
+_ctb="\\e[1;37m"
+_c_reset="\\e[0m"
 
 __help() {
-  printf "${_ctb}Usage: ${_ct_primary}install.sh ${_ctb_subtle}[OPTIONS]\n"
-  printf "  ${_ctb_highlight}-h${_ct},${_ctb_highlight} --help                      ${_ct}Help\n"
-  printf "  ${_ctb_highlight}-v${_ct},${_ctb_highlight} --verbose                   ${_ct}Verbose output\n${_ctb_reset}"
-  printf "  ${_ctb_highlight}-c${_ct},${_ctb_highlight} --configfile <COLOR_CONFIG_FILE>  \
-${_ct}Use the specified color config file\n${_ctb_reset}"
+  printf "$_ctb Usage:$_ctb_primary install.sh $_ctb_subtle[OPTIONS]\\n"
+  printf " $_ctb_highlight-h $_ct,$_ctb_highlight --help                     $_ct Help\\n" 
+  printf " ${_ctb_highlight}-v${_ct},${_ctb_highlight} --verbose                   ${_ct}Verbose output\\n${_ctb_reset}"
+  printf " ${_ctb_highlight}-c${_ct},${_ctb_highlight} --configfile <COLOR_CONFIG_FILE>  \
+${_ct}Use the specified color config file\\n${_ctb_reset}"
 }
 
 __cleanup() {
@@ -41,19 +41,19 @@ __cleanup() {
 }
 
 __log_error() {
-  printf "${_ctb_error}[ERROR] ${_ct}$1${_c_reset}\n"
+  printf "${_ctb_error}[ERROR] ${_ct}$1${_c_reset}\\n"
 }
 
 __log_success() {
-  printf "${_ctb_success}[OK] ${_ct}$1${_c_reset}\n"
+  printf "${_ctb_success}[OK] ${_ct}$1${_c_reset}\\n"
 }
 
 __log_warning() {
-  printf "${_ctb_warning}[WARN] ${_ct}$1${_c_reset}\n"
+  printf "${_ctb_warning}[WARN] ${_ct}$1${_c_reset}\\n"
 }
 
 __log_info() {
-  printf "${_ctb}[INFO] ${_ct}$1${_c_reset}\n"
+  printf "${_ctb}[INFO] ${_ct}$1${_c_reset}\\n"
 }
 
 __summary_success() {
@@ -71,18 +71,22 @@ __summary_error() {
 
 __local_install() {
   __validate_file
-  if [ ! -d $LOCAL_INSTALL_DIR ]; then
-    mkdir -p $LOCAL_INSTALL_DIR
-    if [ $? -eq 0 ]; then
-      if [ $VERBOSE = true ]; then __log_info "Created local directory $LOCAL_INSTALL_DIR"; fi
+  if [ ! -d "$LOCAL_INSTALL_DIR" ]; then
+    mkdir -p "$LOCAL_INSTALL_DIR"
+    if [ "$?" -eq 0 ]; then
+      if [ "$VERBOSE" = true ]; then 
+        __log_info "Created local directory $LOCAL_INSTALL_DIR" 
+      fi
     else
       __log_error "Could not create local directory $LOCAL_INSTALL_DIR"
       __summary_error 1
     fi
   fi
-  cp -f $COLOR_CONFIG_FILE $LOCAL_INSTALL_DIR
-  if [ $? -eq 0 ]; then
-    if [ $VERBOSE = true ]; then __log_success "Copied color config file to $LOCAL_INSTALL_DIR"; fi
+  cp -f "$COLOR_CONFIG_FILE $LOCAL_INSTALL_DIR"
+  if [ "$?" -eq 0 ]; then
+    if [ "$VERBOSE" = true ]; then 
+      __log_success "Copied color config file to $LOCAL_INSTALL_DIR"
+    fi
     __summary_success
   else
     __log_error "Could not copy color config file to $LOCAL_INSTALL_DIR"
@@ -91,15 +95,15 @@ __local_install() {
 }
 
 __validate_file() {
-  if [ ! -f $COLOR_CONFIG_FILE ]; then
+  if [ ! -f "$COLOR_CONFIG_FILE" ]; then
     __log_error "Color config file not found: $COLOR_CONFIG_FILE"
     __summary_error 1
   fi
 }
 
-trap "printf '${_ctb_error}User aborted.${_ctb_reset}\n' && exit 1" SIGINT SIGTERM
+trap "printf '${_ctb_error}User aborted.${_ctb_reset}\n'| && exit 1" SIGINT SIGTERM
 
-NORD_TERMINATOR_SCRIPT_OPTS=`getopt -o vhc: --long verbose,help,configfile: -n 'install.sh' -- "$@"`
+NORD_TERMINATOR_SCRIPT_OPTS="$(getopt -o vhc: --long verbose,help,configfile: -n 'install.sh' -- "$@")"
 COLOR_CONFIG_FILE=src/config
 VERBOSE=false
 LOCAL_INSTALL_DIR=~/.config/terminator
