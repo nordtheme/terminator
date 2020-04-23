@@ -1,6 +1,6 @@
 <p align="center"><img src="https://cdn.rawgit.com/arcticicestudio/nord-terminator/develop/src/assets/nord-terminator-banner.svg"/></p>
 
-<p align="center"><a href="https://github.com/arcticicestudio/nord-terminator/releases/latest"><img src="https://img.shields.io/github/release/arcticicestudio/nord-terminator.svg?style=flat-square"/></a> <a href="https://github.com/arcticicestudio/nord/releases/tag/v0.2.0"><img src="https://img.shields.io/badge/Nord-v0.2.0-88C0D0.svg?style=flat-square"/></a></p>
+<p align="center"><a href="https://github.com/arcticicestudio/nord-terminator/releases/latest"><img src="https://img.shields.io/github/release/arcticicestudio/nord-terminator.svg?style=flat-square&color=88C0D0&label=Release"/></a> <a href="https://github.com/arcticicestudio/nord/releases/tag/v0.2.0"><img src="https://img.shields.io/badge/Nord-v0.2.0-88C0D0.svg?style=flat-square"/></a></p>
 
 <p align="center">An arctic, north-bluish clean and elegant <a href="https://gnometerminator.blogspot.de/p/introduction.html">Terminator</a> color theme.</p>
 
