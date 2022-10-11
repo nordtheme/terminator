@@ -32,7 +32,7 @@ To install _Nord_, the content of the [`config`][src-config] file must be manual
    +    background_color = "#2E3440"
    +    cursor_color = "#D8DEE9"
    +    foreground_color = "#D8DEE9"
-   +    palette =    "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#8F  BCBB:#ECEFF4"
+   +    palette =    "#3B4252:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#88C0D0:#E5E9F0:#4C566A:#BF616A:#A3BE8C:#EBCB8B:#81A1C1:#B48EAD:#8FBCBB:#ECEFF4"
    ```
 
 ## Screenshots
